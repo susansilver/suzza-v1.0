@@ -1,0 +1,101 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import "../../styles/global.css";
+
+import { SITE_TITLE } from "../../consts";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+import { AstroFont } from "astro-font";
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = "/flower-bloom.jpg" } = Astro.props;
+---
+
+<!doctype html>
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- RSS Feed Discovery -->
+<!-- <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" /> -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Suzza Silver"
+  href={`${Astro.site}rss.xml`}
+/>
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Primary Meta Tags -->
+<title>{title} - {SITE_TITLE}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<meta
+  name="Copyright"
+  content="Copyright © Suzza Silver 2024. All Rights Reserved."
+/>
+
+<meta name="theme-color" content="#D1C3C3" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Load Fonts -->
+<AstroFont
+  config={[
+    {
+      name: "Nunito",
+      src: [
+        {
+          weight: "400",
+          style: "normal",
+          path: "/fonts/nunito-v26-latin-regular.woff2",
+        },
+      ],
+      preload: true,
+      display: "swap",
+      selector: "body",
+      fallback: "sans-serif",
+    },
+    {
+      name: "Poppins",
+      src: [
+        {
+          weight: "400",
+          style: "normal",
+          path: "/fonts/poppins-v21-latin-regular.woff2",
+        },
+      ],
+      preload: true,
+      display: "swap",
+      selector: ".poppins",
+      fallback: "sans-serif",
+    },
+  ]}
+/>
+
+<!-- Place favicon.ico in the root directory -->

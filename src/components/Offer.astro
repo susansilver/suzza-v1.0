@@ -1,0 +1,13 @@
+---
+import BookCover from "../assets/blogging-FAQ-cover.png"
+import { Image } from 'astro:assets';
+---
+
+<div id="offer-box" class="bg-secondary-950 text-text-50 flex flex-col lg:flex-row margin-y-xxl rounded-xl">
+    <div id="newsletter-signup" class="flex flex-col padding-y-med">
+    <div id="offer-text" class="margin-y-xxl padding-x-large text-center text-balance"><h2>Get a Free How To Start Blogging FAQ When You Sign Up for the Newsletter</h2></div>
+    <div id="newsletter-form" class="flex justify-center margin-top-xxl"><iframe src="https://embeds.beehiiv.com/9a249792-c593-446f-9054-76b1c92f7336?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;" class="w-full padding-x-med"></iframe>
+    </div>
+    </div>
+    <div id="offer-image"> <Image src={BookCover}} alt="How to Start Blogging FAQ" width={800} height={1200} class="lg:rounded-br-xl lg:rounded-tr-xl h-full w-full"/></div>
+</div>

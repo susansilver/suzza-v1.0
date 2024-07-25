@@ -1,18 +1,35 @@
 ---
 import BaseHead from "../components/Base/BaseHead.astro";
+import SlimNewsletter from "../components/SlimNewsletter.astro";
+import Offer from "../components/Offer.astro";
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title="Home" description="From Math Anxiety to Math Confidence" />
+    <BaseHead title="Home" description="A Growing Community of Writers" />
   </head>
-  <body>
-    <h1 class="poppins">Astro</h1>
-    <h2>This is a heading two</h2>
-    <h3>This is a heading three</h3>
-    <p>This isa heading three</p>
-    <h4>This is a heading four</h4>
+  <body class="bg-primary-300">
+ <main>
+<div class="grid grid-cols-12">
+  <div class="col-span-8 col-start-3 col-end-10">
+  <!--   Newsletter Signup -->
+  <SlimNewsletter />
 
-    <p>This is just some body text for contrast.</p>
+<!-- Tagline --> 
+    <div id="tagline">
+<h1 class="text-secondary-950 text-center">Let's Bloom Together</h1>
+    </div>
+
+<!-- Problem/Solution -->
+ <div id="problem-solution" class="rounded-xl bg-background-50">
+ <div id="problem">This is a Problem</div>
+ <div id="solution"> This is a solution</div>
+ </div>
+
+<!--  Offer -->
+  <Offer />
+  </div>
+</div>
+ </main>
   </body>
 </html>

@@ -90,7 +90,7 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Nothing to see here.</p>
               ) : (
                 blogDesignPosts.map((post) => (
-                  <li key={post.slug}>
+                  <li>
                     <div id="card" class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
                       <div id="card-img" class="hidden lg:block">
                         <Image
@@ -100,7 +100,7 @@ const searchPosts = allPosts.filter((post) =>
                           format="avif"
                           quality="mid"
                           alt={post.data.heroImage.alt}
-                          class="w-full h-full"
+                          class="w-full h-full rounded-tl-xl rounded-bl-xl"
                         />
                       </div>
                       <div id="card-text" class="p-8">
@@ -135,7 +135,7 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Nothing to see here.</p>
               ) : (
                 writingTipsPosts.map((post) => (
-                  <li key={post.slug}>
+                  <li>
                     <div id="card" class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
                       <div id="card-img" class="hidden lg:block">
                         <Image
@@ -145,7 +145,7 @@ const searchPosts = allPosts.filter((post) =>
                           format="avif"
                           quality="mid"
                           alt={post.data.heroImage.alt}
-                          class="w-full h-full"
+                          class="w-full h-full rounded-tl-xl rounded-bl-xl"
                         />
                       </div>
                       <div id="card-text" class="p-8">
@@ -180,7 +180,7 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Nothing to see here.</p>
               ) : (
                 communityPosts.map((post) => (
-                  <li key={post.slug}>
+                  <li>
                     <div id="card" class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
                       <div id="card-img" class="hidden lg:block">
                         <Image
@@ -190,7 +190,7 @@ const searchPosts = allPosts.filter((post) =>
                           format="avif"
                           quality="mid"
                           alt={post.data.heroImage.alt}
-                          class="w-full h-full"
+                          class="w-full h-full rounded-tl-xl rounded-bl-xl"
                         />
                       </div>
                       <div id="card-text" class="p-8">
@@ -225,7 +225,7 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Nothing to see here.</p>
               ) : (
                 moneyPosts.map((post) => (
-                  <li key={post.slug}>
+                  <li>
                     <div id="card" class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
                       <div id="card-img" class="hidden lg:block">
                         <Image
@@ -235,7 +235,7 @@ const searchPosts = allPosts.filter((post) =>
                           format="avif"
                           quality="mid"
                           alt={post.data.heroImage.alt}
-                          class="w-full h-full"
+                          class="w-full h-full rounded-tl-xl rounded-bl-xl"
                         />
                       </div>
                       <div id="card-text" class="p-8">
@@ -270,7 +270,7 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Nothing to see here.</p>
               ) : (
                 motivationPosts.map((post) => (
-                  <li key={post.slug}>
+                  <li>
                     <div id="card" class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
                       <div id="card-img" class="hidden lg:block">
                         <Image
@@ -280,7 +280,7 @@ const searchPosts = allPosts.filter((post) =>
                           format="avif"
                           quality="mid"
                           alt={post.data.heroImage.alt}
-                          class="w-full h-full"
+                          class="w-full h-full rounded-tl-xl rounded-bl-xl"
                         />
                       </div>
                       <div id="card-text" class="p-8">
@@ -315,7 +315,7 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Nothing to see here.</p>
               ) : (
                 planningPosts.map((post) => (
-                  <li key={post.slug}>
+                  <li>
                     <div id="card" class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
                       <div id="card-img" class="hidden lg:block">
                         <Image
@@ -325,7 +325,7 @@ const searchPosts = allPosts.filter((post) =>
                           format="avif"
                           quality="mid"
                           alt={post.data.heroImage.alt}
-                          class="w-full h-full"
+                          class="w-full h-full rounded-tl-xl rounded-bl-xl"
                         />
                       </div>
                       <div id="card-text" class="p-8">
@@ -360,7 +360,7 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Nothing to see here.</p>
               ) : (
                 searchPosts.map((post) => (
-                  <li key={post.slug}>
+                  <li>
                     <div id="card" class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
                       <div id="card-img" class="hidden lg:block">
                         <Image
@@ -370,7 +370,7 @@ const searchPosts = allPosts.filter((post) =>
                           format="avif"
                           quality="mid"
                           alt={post.data.heroImage.alt}
-                          class="w-full h-full"
+                          class="w-full h-full rounded-tl-xl rounded-bl-xl"
                         />
                       </div>
                       <div id="card-text" class="p-8">

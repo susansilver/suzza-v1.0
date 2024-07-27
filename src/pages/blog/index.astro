@@ -1,0 +1,184 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseHead from "../../components/Base/BaseHead.astro";
+import Header from "../../components/Base/Header.astro";
+
+const allPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  const allCategories = [
+  ...new Set(allPosts.flatMap((blogPost) => blogPost.data.categories)),
+];
+
+// Filter posts for the "blog design" category
+const blogDesignPosts = allPosts.filter((post) =>
+  post.data.categories.includes("blog-design")
+);
+
+// Filter posts for the "Writing tips" category
+const writingTipsPosts = allPosts.filter((post) =>
+  post.data.categories.includes("writing-tips")
+);
+
+// Filter posts for the "Building Community" category
+const communityPosts = allPosts.filter((post) =>
+  post.data.categories.includes("building-community")
+);
+
+// Filter posts for the "Making Money" category
+const moneyPosts = allPosts.filter((post) =>
+  post.data.categories.includes("making-money")
+);
+
+// Filter posts for the "Motivation" category
+const motivationPosts = allPosts.filter((post) =>
+  post.data.categories.includes("motivation")
+);
+
+// Filter posts for the "Planning and Productivity" category
+const planningPosts = allPosts.filter((post) =>
+  post.data.categories.includes("planning-and-productivity")
+);
+
+// Filter posts for the "Search Taffic" category
+const searchPosts = allPosts.filter((post) =>
+  post.data.categories.includes("search-traffic")
+);
+---
+<html lang="en">
+  <head>
+    <BaseHead title="Blog" description="Let's Bloom Together" />
+  </head>
+  <body class="bg-primary-300">
+   <Header />
+ <main>
+    <div class="grid grid-cols-12">
+        <div class="col-span-6 col-start-4 col-end-10">
+            <div id="blog-summary">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id urna nec quam euismod elementum. Curabitur ullamcorper, diam eu blandit dictum, magna ante viverra risus, a aliquam ligula mauris sed diam. Nullam vitae libero eget turpis cursus dictum non nec risus. In hac habitasse platea dictumst. </p>
+            </div>
+            <div id="category-links">
+                Go to Category:
+                <ul class="flex flex-row list-none flex-wrap xs">
+                    {
+                      allCategories.map((category) => {
+                        // Check if category is defined
+                        if (category) {
+                          return (
+                            <li class="m-3">
+                              <a
+                                class="rounded-xl bg-accent-400 text-text-950 underline p-2 hover:text-background-100"
+                                href={`#${category}`}
+                                title={`Go To ${category.replace(/-/g, " ")}`}
+                              >
+                                {category.replace(/-/g, " ")}
+                              </a>
+                            </li>
+                          );
+                        }
+                        // Return null if category is not defined
+                        return null;
+                      })
+                    }
+                  </ul>
+
+            </div>
+            <a id="blog-design"></a>
+            <div id="blog-design">
+                <ul>
+                    {
+                        blogDesignPosts.map((post) => (
+                          <li>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.description}</p>
+                          </li>
+                        ))
+                      }
+                  </ul>
+            </div>
+            <a id="writing-tips"></a>
+            <div id="writing-tips">
+                <ul>
+                    {
+                        writingTipsPosts.map((post) => (
+                          <li>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.description}</p>
+                          </li>
+                        ))
+                      }
+                  </ul>
+            </div>
+            <a id="building-community"></a>
+            <div id="building-community">
+                <ul>
+                    {
+                        communityPosts.map((post) => (
+                          <li>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.description}</p>
+                          </li>
+                        ))
+                      }
+                  </ul>
+            </div>
+            <a id="making-money"></a>
+            <div id="making-money">
+                <ul>
+                    {
+                        moneyPosts.map((post) => (
+                          <li>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.description}</p>
+                          </li>
+                        ))
+                      }
+                  </ul>
+            </div>
+            <a id="motivation"></a>
+            <div id="motivation">
+                <ul>
+                    {
+                        motivationPosts.map((post) => (
+                          <li>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.description}</p>
+                          </li>
+                        ))
+                      }
+                  </ul>
+            </div>
+            <a id="planning-and-productivity"></a>
+            <div id="planning">
+                <ul>
+                    {
+                        planningPosts.map((post) => (
+                          <li>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.description}</p>
+                          </li>
+                        ))
+                      }
+                  </ul>
+            </div>
+            <a id="search-traffic"></a>
+            <div id="search-traffic">
+                <ul>
+                    {
+                        searchPosts.map((post) => (
+                          <li>
+                            <h2>{post.data.title}</h2>
+                            <p>{post.data.description}</p>
+                          </li>
+                        ))
+                      }
+                  </ul>
+            </div>
+
+        </div>
+    </div>
+</main>
+</body>
+</html>

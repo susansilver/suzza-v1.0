@@ -365,7 +365,7 @@ button:hover {
 
 a {
   text-decoration: underline;
-  color: #164464;
+  color: #000;
 }
 
 a:hover {
@@ -373,7 +373,7 @@ a:hover {
 }
 
 a:visited {
-  color: #212121;
+  color: #000;
 }
 
 /* Image Position */

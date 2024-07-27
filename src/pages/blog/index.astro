@@ -15,37 +15,37 @@ const allPosts = (await getCollection("blog"))
 // Filter posts for the "blog design" category
 const blogDesignPosts = allPosts.filter((post) =>
   post.data.categories.includes("blog-design")
-);
+).slice(0, 3);
 
 // Filter posts for the "Writing tips" category
 const writingTipsPosts = allPosts.filter((post) =>
   post.data.categories.includes("writing-tips")
-);
+).slice(0, 3);
 
 // Filter posts for the "Building Community" category
 const communityPosts = allPosts.filter((post) =>
   post.data.categories.includes("building-community")
-);
+).slice(0, 3);
 
 // Filter posts for the "Making Money" category
 const moneyPosts = allPosts.filter((post) =>
   post.data.categories.includes("making-money")
-);
+).slice(0, 3);
 
 // Filter posts for the "Motivation" category
 const motivationPosts = allPosts.filter((post) =>
   post.data.categories.includes("motivation")
-);
+).slice(0, 3);
 
 // Filter posts for the "Planning and Productivity" category
 const planningPosts = allPosts.filter((post) =>
   post.data.categories.includes("planning-and-productivity")
-);
+).slice(0, 3);
 
 // Filter posts for the "Search Taffic" category
 const searchPosts = allPosts.filter((post) =>
   post.data.categories.includes("search-traffic")
-);
+).slice(0, 3);
 ---
 <html lang="en">
   <head>
@@ -60,8 +60,8 @@ const searchPosts = allPosts.filter((post) =>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id urna nec quam euismod elementum. Curabitur ullamcorper, diam eu blandit dictum, magna ante viverra risus, a aliquam ligula mauris sed diam. Nullam vitae libero eget turpis cursus dictum non nec risus. In hac habitasse platea dictumst. </p>
             </div>
             <div id="category-links">
-                Go to Category:
-                <ul class="flex flex-row list-none flex-wrap xs">
+                Choose a Category.
+                <ul class="flex flex-row list-none flex-wrap">
                     {
                       allCategories.map((category) => {
                         // Check if category is defined
@@ -69,7 +69,7 @@ const searchPosts = allPosts.filter((post) =>
                           return (
                             <li class="m-3">
                               <a
-                                class="rounded-xl bg-accent-400 text-text-950 underline p-2 hover:text-background-100"
+                                class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100"
                                 href={`#${category}`}
                                 title={`Go To ${category.replace(/-/g, " ")}`}
                               >
@@ -87,94 +87,336 @@ const searchPosts = allPosts.filter((post) =>
             </div>
             <a id="blog-design"></a>
             <div id="blog-design">
-                <ul>
+              <h2> Blog Design:</h2>
+                <ul class="list-none">
                     {
                         blogDesignPosts.map((post) => (
                           <li>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
+                            <div id="card"  class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
+                              <div id="card-img" class="hidden lg:block">
+                                <Image
+                      src={post.data.heroImage.src}
+                      width={500}
+                      height={300}
+                      format="avif"
+                      quality="mid"
+                      alt={post.data.heroImage.alt}
+                      class="w-full h-full"
+                    />
+
+                              </div>
+                              <div id="card-text" class="p-8">
+                                <h3>{post.data.title}</h3>
+                                TL;DR
+                                <ul class="xs padding-bottom-xxl">
+                                  <li>
+                                    {post.data.tldrOne}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrTwo}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrThree}
+                                  </li>
+
+                                </ul>
+                                <a href={`/${post.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">Read More</a>
+
+                              </div>
+                            </div>
                           </li>
                         ))
                       }
                   </ul>
+                  <div class="bg-text-100 w-full rounded-xl margin-y-large p-3 flex justify-center">
+                  <a href="/category/blog-design"> View All ➤</a>
+                </div>
             </div>
             <a id="writing-tips"></a>
             <div id="writing-tips">
-                <ul>
+              <h2>Writing Tips: </h2>
+                <ul class="list-none">
                     {
-                        writingTipsPosts.map((post) => (
+                        writingTipsPosts.length === 0 ? (
+    <p>nothing to see here</p>
+  ) : (
+                        writingTipsPosts.map((post) =>  (
                           <li>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
+                            <div id="card"  class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
+                              <div id="card-img" class="hidden lg:block">
+                                <Image
+                      src={post.data.heroImage.src}
+                      width={500}
+                      height={300}
+                      format="avif"
+                      quality="mid"
+                      alt={post.data.heroImage.alt}
+                      class="w-full h-full"
+                    />
+
+                              </div>
+                              <div id="card-text" class="p-8">
+                                <h3>{post.data.title}</h3>
+                                TL;DR
+                                <ul class="xs padding-bottom-xxl">
+                                  <li>
+                                    {post.data.tldrOne}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrTwo}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrThree}
+                                  </li>
+
+                                </ul>
+                                <a href={`/${post.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">Read More</a>
+
+                              </div>
+                            </div>
                           </li>
                         ))
+                        )
                       }
                   </ul>
+                  <div class="bg-text-100 w-full rounded-xl margin-y-large p-3 flex justify-center">
+                    <a href="/category/writing-tips"> View All ➤</a>
+                  </div>
             </div>
             <a id="building-community"></a>
             <div id="building-community">
-                <ul>
+              <h2>Building Community:</h2>
+                <ul class="list-none">
                     {
-                        communityPosts.map((post) => (
+                        communityPosts.map((post) =>  (
                           <li>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
+                            <div id="card"  class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
+                              <div id="card-img" class="hidden lg:block">
+                                <Image
+                      src={post.data.heroImage.src}
+                      width={500}
+                      height={300}
+                      format="avif"
+                      quality="mid"
+                      alt={post.data.heroImage.alt}
+                      class="w-full h-full"
+                    />
+
+                              </div>
+                              <div id="card-text" class="p-8">
+                                <h3>{post.data.title}</h3>
+                                TL;DR
+                                <ul class="xs padding-bottom-xxl">
+                                  <li>
+                                    {post.data.tldrOne}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrTwo}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrThree}
+                                  </li>
+
+                                </ul>
+                                <a href={`/${post.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">Read More</a>
+
+                              </div>
+                            </div>
                           </li>
                         ))
                       }
                   </ul>
+                  <div class="bg-text-100 w-full rounded-xl margin-y-large p-3 flex justify-center">
+                    <a href="/category/building-community"> View All ➤</a>
+                  </div>
             </div>
             <a id="making-money"></a>
             <div id="making-money">
-                <ul>
+              <h2>Making Money:</h2>
+                <ul class="list-none">
                     {
-                        moneyPosts.map((post) => (
+                        moneyPosts.map((post) =>  (
                           <li>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
+                            <div id="card"  class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
+                              <div id="card-img" class="hidden lg:block">
+                                <Image
+                      src={post.data.heroImage.src}
+                      width={500}
+                      height={300}
+                      format="avif"
+                      quality="mid"
+                      alt={post.data.heroImage.alt}
+                      class="w-full h-full"
+                    />
+
+                              </div>
+                              <div id="card-text" class="p-8">
+                                <h3>{post.data.title}</h3>
+                                TL;DR
+                                <ul class="xs padding-bottom-xxl">
+                                  <li>
+                                    {post.data.tldrOne}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrTwo}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrThree}
+                                  </li>
+
+                                </ul>
+                                <a href={`/${post.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">Read More</a>
+
+                              </div>
+                            </div>
                           </li>
                         ))
                       }
                   </ul>
+                  <div class="bg-text-100 w-full rounded-xl margin-y-large p-3 flex justify-center">
+                    <a href="/category/making-money"> View All ➤</a>
+                  </div>
             </div>
             <a id="motivation"></a>
             <div id="motivation">
-                <ul>
+              <h2>Motivation:</h2>
+                <ul class="list-none">
                     {
-                        motivationPosts.map((post) => (
+                        motivationPosts.map((post) =>  (
                           <li>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
+                            <div id="card"  class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
+                              <div id="card-img" class="hidden lg:block">
+                                <Image
+                      src={post.data.heroImage.src}
+                      width={500}
+                      height={300}
+                      format="avif"
+                      quality="mid"
+                      alt={post.data.heroImage.alt}
+                      class="w-full h-full"
+                    />
+
+                              </div>
+                              <div id="card-text" class="p-8">
+                                <h3>{post.data.title}</h3>
+                                TL;DR
+                                <ul class="xs padding-bottom-xxl">
+                                  <li>
+                                    {post.data.tldrOne}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrTwo}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrThree}
+                                  </li>
+
+                                </ul>
+                                <a href={`/${post.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">Read More</a>
+
+                              </div>
+                            </div>
                           </li>
                         ))
                       }
                   </ul>
+                  <div class="bg-text-100 w-full rounded-xl margin-y-large p-3 flex justify-center">
+                    <a href="/category/motivation"> View All ➤</a>
+                  </div>
             </div>
             <a id="planning-and-productivity"></a>
             <div id="planning">
-                <ul>
+              <h2>Planning and Productivity:</h2>
+                <ul class="list-none">
                     {
-                        planningPosts.map((post) => (
+                        planningPosts.map((post) =>  (
                           <li>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
+                            <div id="card"  class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
+                              <div id="card-img" class="hidden lg:block">
+                                <Image
+                      src={post.data.heroImage.src}
+                      width={500}
+                      height={300}
+                      format="avif"
+                      quality="mid"
+                      alt={post.data.heroImage.alt}
+                      class="w-full h-full"
+                    />
+
+                              </div>
+                              <div id="card-text" class="p-8">
+                                <h3>{post.data.title}</h3>
+                                TL;DR
+                                <ul class="xs padding-bottom-xxl">
+                                  <li>
+                                    {post.data.tldrOne}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrTwo}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrThree}
+                                  </li>
+
+                                </ul>
+                                <a href={`/${post.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">Read More</a>
+
+                              </div>
+                            </div>
                           </li>
                         ))
                       }
                   </ul>
+                  <div class="bg-text-100 w-full rounded-xl margin-y-large p-3 flex justify-center">
+                    <a href="/category/planning-and-productivity"> View All ➤</a>
+                  </div>
             </div>
             <a id="search-traffic"></a>
             <div id="search-traffic">
-                <ul>
+              <h2>Search Traffic:</h2>
+                <ul class="list-none">
                     {
-                        searchPosts.map((post) => (
+                        searchPosts.map((post) =>  (
                           <li>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
+                            <div id="card"  class="rounded-xl bg-text-100 flex flex-col lg:flex-row">
+                              <div id="card-img" class="hidden lg:block">
+                                <Image
+                      src={post.data.heroImage.src}
+                      width={500}
+                      height={300}
+                      format="avif"
+                      quality="mid"
+                      alt={post.data.heroImage.alt}
+                      class="w-full h-full"
+                    />
+
+                              </div>
+                              <div id="card-text" class="p-8">
+                                <h3>{post.data.title}</h3>
+                                TL;DR
+                                <ul class="xs padding-bottom-xxl">
+                                  <li>
+                                    {post.data.tldrOne}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrTwo}
+                                  </li>
+                                  <li>
+                                    {post.data.tldrThree}
+                                  </li>
+
+                                </ul>
+                                <a href={`/${post.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">Read More</a>
+
+                              </div>
+                            </div>
                           </li>
                         ))
                       }
                   </ul>
+                  <div class="bg-text-100 w-full rounded-xl margin-y-large p-3 flex justify-center">
+                    <a href="/category/search-traffic"> View All ➤</a>
+                  </div>
             </div>
 
         </div>

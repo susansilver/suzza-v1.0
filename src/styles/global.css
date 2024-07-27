@@ -303,6 +303,10 @@ li {
   margin-block: var(--space-small);
 }
 
+li::marker {
+  color: #d8274f;
+}
+
 ul {
   list-style-type: disc;
 }

@@ -59,8 +59,22 @@ const { frontmatter} = Astro.props;
         <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8 rounded-xl bg-white">
         <slot />
         </div>
-        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 rounded-xl bg-white">
-        <Sidebar />
+        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3">
+           <div id="author-bio" class="bg-white rounded-xl">
+           <p> text</p>
+           </div>
+           <div id="advertisment-policy" class="bg-white rounded-xl">
+          <p>text</p>
+           </div>
+           <div id="guest-policy" class="bg-white rounded-xl">
+           <p>text</p>
+           </div>
+           <div id="support" class="bg-white rounded-xl">
+           <p>text</p>
+           </div>
+           <div id="newsletter-signup-sidebar" class="bg-white rounded-xl">
+           <p>text</p>
+           </div>
         </div>
          </div>
           </div>

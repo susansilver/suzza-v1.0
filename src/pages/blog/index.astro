@@ -7,7 +7,7 @@ import Footer from "../../components/base/Footer.astro";
 
 const allPosts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 
   const allCategories = [
   ...new Set(allPosts.flatMap((blogPost) => blogPost.data.categories)),
@@ -15,37 +15,37 @@ const allPosts = (await getCollection("blog"))
 
 // Filter posts for the "blog design" category
 const blogDesignPosts = allPosts.filter((post) =>
-  post.data.categories.includes("blog-design")
+  post.data.categories?.includes("blog-design")
 ).slice(0, 3);
 
 // Filter posts for the "Writing tips" category
 const writingTipsPosts = allPosts.filter((post) =>
-  post.data.categories.includes("writing-tips")
+  post.data.categories?.includes("writing-tips")
 ).slice(0, 3);
 
 // Filter posts for the "Building Community" category
 const communityPosts = allPosts.filter((post) =>
-  post.data.categories.includes("building-community")
+  post.data.categories?.includes("building-community")
 ).slice(0, 3);
 
 // Filter posts for the "Making Money" category
 const moneyPosts = allPosts.filter((post) =>
-  post.data.categories.includes("making-money")
+  post.data.categories?.includes("making-money")
 ).slice(0, 3);
 
 // Filter posts for the "Motivation" category
 const motivationPosts = allPosts.filter((post) =>
-  post.data.categories.includes("motivation")
+  post.data.categories?.includes("motivation")
 ).slice(0, 3);
 
 // Filter posts for the "Planning and Productivity" category
 const planningPosts = allPosts.filter((post) =>
-  post.data.categories.includes("planning-and-productivity")
+  post.data.categories?.includes("planning-and-productivity")
 ).slice(0, 3);
 
 // Filter posts for the "Search Taffic" category
 const searchPosts = allPosts.filter((post) =>
-  post.data.categories.includes("search-traffic")
+  post.data.categories?.includes("search-traffic")
 ).slice(0, 3);
 ---
 
@@ -144,13 +144,14 @@ const searchPosts = allPosts.filter((post) =>
                       <div id="card-img">
                         <a href={`/${post.slug}`}>
                         <Image
-                          src={post.data.heroImage.src}
+                          src={post.data.headerImage.src}
                           width={300}
                           height={600}
                           format="avif"
                           quality="mid"
-                          alt={post.data.heroImage.alt}
+                          alt={post.data.headerImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                           transition:name="hero"
                         />
                         </a>
                       </div>
@@ -191,13 +192,14 @@ const searchPosts = allPosts.filter((post) =>
                       <div id="card-img">
                         <a href={`/${post.slug}`}>
                         <Image
-                          src={post.data.heroImage.src}
+                          src={post.data.headerImage.src}
                           width={300}
                           height={600}
                           format="avif"
                           quality="mid"
-                          alt={post.data.heroImage.alt}
+                          alt={post.data.headerImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                           transition:name="hero"
                         /></a>
                       </div>
                       <div id="card-text" class="p-8">
@@ -237,13 +239,14 @@ const searchPosts = allPosts.filter((post) =>
                       <div id="card-img">
                         <a href={`/${post.slug}`}>
                         <Image
-                          src={post.data.heroImage.src}
+                          src={post.data.headerImage.src}
                           width={300}
                           height={600}
                           format="avif"
                           quality="mid"
-                          alt={post.data.heroImage.alt}
+                          alt={post.data.headerImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                           transition:name="hero"
                         /></a>
                       </div>
                       <div id="card-text" class="p-8">
@@ -283,13 +286,14 @@ const searchPosts = allPosts.filter((post) =>
                       <div id="card-img">
                         <a href={`/${post.slug}`}>
                         <Image
-                          src={post.data.heroImage.src}
+                          src={post.data.headerImage.src}
                           width={300}
                           height={600}
                           format="avif"
                           quality="mid"
-                          alt={post.data.heroImage.alt}
+                          alt={post.data.headerImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                           transition:name="hero"
                         /></a>
                       </div>
                       <div id="card-text" class="p-8">
@@ -329,13 +333,14 @@ const searchPosts = allPosts.filter((post) =>
                       <div id="card-img">
                         <a href={`/${post.slug}`}>
                         <Image
-                          src={post.data.heroImage.src}
+                          src={post.data.headerImage.src}
                           width={300}
                           height={600}
                           format="avif"
                           quality="mid"
-                          alt={post.data.heroImage.alt}
+                          alt={post.data.headerImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                           transition:name="hero"
                         /></a>
                       </div>
                       <div id="card-text" class="p-8">
@@ -375,13 +380,14 @@ const searchPosts = allPosts.filter((post) =>
                       <div id="card-img">
                         <a href={`/${post.slug}`}>
                         <Image
-                          src={post.data.heroImage.src}
+                          src={post.data.headerImage.src}
                           width={300}
                           height={600}
                           format="avif"
                           quality="mid"
-                          alt={post.data.heroImage.alt}
+                          alt={post.data.headerImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                           transition:name="hero"
                         /></a>
                       </div>
                       <div id="card-text" class="p-8">

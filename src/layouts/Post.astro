@@ -5,7 +5,6 @@ import Header from "../components/base/Header.astro";
 import Footer from "../components/base/Footer.astro";
 import HeaderImage from "../components/blog/HeaderImage.astro"
 import Newsletter from "../components/Newsletter.astro";
-import Sidebar from "../components/blog/Sidebar.astro"
 import Offer from "../components/Offer.astro";
 
 
@@ -49,9 +48,11 @@ const { frontmatter} = Astro.props;
                 <HeaderImage
                 imagePath={frontmatter.headerImage.src}
                 alt={frontmatter.headerImage.alt}
+                
               />
-            
+           <div id="meta">
            <h1 class="text-secondary-950 text-balance">{frontmatter.title}</h1>
+           </div>
           </div>
         </div>
       </div>

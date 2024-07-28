@@ -96,13 +96,14 @@ const searchPosts = allPosts.filter((post) =>
                       <div id="card-img">
                         <a href={`/${post.slug}`}>
                         <Image
-                          src={post.data.heroImage.src}
+                          src={post.data.headerImage.src}
                           width={300}
                           height={600}
                           format="avif"
                           quality="mid"
-                          alt={post.data.heroImage.alt}
+                          alt={post.data.headerImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                          transition:name="hero"
                         />
                         </a>
                       </div>

@@ -328,13 +328,14 @@ ol > li > ol {
 /* Paragraphs */
 p {
   margin-block: var(--space-med);
+  padding-inline: var(--space-small);
   /*   margin-block-end:1em; */
 }
 
 /* Blockquote */
 blockquote {
   border-left: 3px solid #d8274f;
-  padding-inline: var(--space-small);
+  padding-inline: var(--space-xs);
 }
 
 .attribution {

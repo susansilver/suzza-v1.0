@@ -17,7 +17,7 @@ if (!images[imagePath])
   );
 ---
 
-<div class="wrap" id="header-image">
+<div  id="header-image">
   <Image
     src={images[imagePath]()}
     width={1200}
@@ -25,5 +25,6 @@ if (!images[imagePath])
     format="avif"
     quality="mid"
     alt={alt}
+    class="rounded-xl w-full"
   />
 </div>

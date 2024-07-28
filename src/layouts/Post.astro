@@ -5,6 +5,8 @@ import Header from "../components/base/Header.astro";
 import Footer from "../components/base/Footer.astro";
 import HeaderImage from "../components/blog/HeaderImage.astro"
 import Newsletter from "../components/Newsletter.astro";
+import Sidebar from "../components/blog/Sidebar.astro"
+import Offer from "../components/Offer.astro";
 
 
 interface Props {
@@ -43,15 +45,31 @@ const { frontmatter} = Astro.props;
         <div class="grid grid-cols-12">
           <div class="col-span-10 col-start-2 col-end-12 lg:col-span-6 lg:col-start-4 lg:col-end-10">
             <Newsletter />
-          
+          <div>
                 <HeaderImage
                 imagePath={frontmatter.headerImage.src}
                 alt={frontmatter.headerImage.alt}
               />
-           
+            
+           <h1 class="text-secondary-950 text-balance">{frontmatter.title}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-12 gap-3">
+        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8 rounded-xl bg-white">
         <slot />
+        </div>
+        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 rounded-xl bg-white">
+        <Sidebar />
+        </div>
          </div>
           </div>
+          <div class="grid grid-cols-12">
+            <div class="col-span-10 col-start-2 col-end-12 lg:col-span-6 lg:col-start-4 lg:col-end-10">
+<Offer />
+              </div>
+              </div>
+
       </article>
     </main>
     <Footer />

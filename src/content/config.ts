@@ -22,6 +22,12 @@ const blog = defineCollection({
       tldrOne: z.string().optional(),
       tldrTwo: z.string().optional(),
       tldrThree: z.string().optional(),
+      headerImage: z.object({
+        src: image()
+          .refine((img) => (img.height = 300))
+          .refine((img) => (img.width = 1200)),
+        alt: z.string(),
+      }),
     }),
 });
 

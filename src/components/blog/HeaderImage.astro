@@ -1,0 +1,29 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  imagePath: string;
+  alt: string;
+}
+
+const { imagePath, alt } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/headers/*.{jpeg,jpg,png,gif}"
+);
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
+---
+
+<div class="wrap" id="header-image">
+  <Image
+    src={images[imagePath]()}
+    width={1200}
+    height={300}
+    format="avif"
+    quality="mid"
+    alt={alt}
+  />
+</div>

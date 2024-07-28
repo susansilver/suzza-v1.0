@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/base/BaseHead.astro";
+import Header from "../components/base/Header.astro";
+import Footer from "../components/base/Footer.astro";
+import HeaderImage from "../components/blog/HeaderImage.astro"
+import Newsletter from "../components/Newsletter.astro";
+
+
+interface Props {
+  frontmatter: CollectionEntry<"blog">["data"] & {
+    heroImage: {
+      src: string;
+      alt: string;
+    };
+    title: string;
+    updatedDate: string;
+    description: string;
+    pubDate: string;
+    categories: string;
+    author: string;
+    tldrOne: string;
+    tldrTwo: string;
+    tldrThree: string;
+    headerImage: {
+      src: string;
+      alt: string;
+    };
+  };
+}
+
+const { frontmatter} = Astro.props;
+---
+<html lang="en" class="scroll-smooth">
+  <head>
+    <BaseHead title={frontmatter.title} description={frontmatter.description} />
+  </head>
+
+  <body class="bg-primary-300">
+    <Header />
+    <main class="margin-y-xxl">
+      <article>
+        <div class="grid grid-cols-12">
+          <div class="col-span-10 col-start-2 col-end-12 lg:col-span-6 lg:col-start-4 lg:col-end-10">
+            <Newsletter />
+          
+                <HeaderImage
+                imagePath={frontmatter.headerImage.src}
+                alt={frontmatter.headerImage.alt}
+              />
+           
+        <slot />
+         </div>
+          </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

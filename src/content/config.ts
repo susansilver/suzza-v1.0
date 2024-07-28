@@ -10,7 +10,7 @@ const blog = defineCollection({
       draft: z.boolean(),
       // Transform string to Date object
       pubDate: z.coerce.string().date(),
-      updatedDate: z.coerce.string().date().optional(),
+      updatedDate: z.string().optional(),
       categories: z.string().optional(),
       author: z.string(),
       tldrOne: z.string().optional(),
@@ -25,7 +25,7 @@ const blog = defineCollection({
     }),
 });
 
-const authors = defineCollection({
+/* const authors = defineCollection({
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
@@ -38,6 +38,6 @@ const authors = defineCollection({
         alt: z.string(),
       }),
     }),
-});
+}); */
 
-export const collections = { blog: blog, authors: authors };
+export const collections = { blog: blog };

@@ -52,28 +52,33 @@ const { frontmatter} = Astro.props;
               />
            <div id="meta">
            <h1 class="text-secondary-950 text-balance">{frontmatter.title}</h1>
+           <div class="flex flex-row gap-3">
+            <div id="time">Updated: {frontmatter.updatedDate}</div>
+            <div id="category">Category: <a href={`/category/${frontmatter.categories}`}>{frontmatter.categories.replace(/-/g, " ")}</a></div>
+
+           </div>
            </div>
           </div>
         </div>
       </div>
       <div class="grid grid-cols-12 gap-3">
-        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8 rounded-xl bg-white">
+        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8 rounded-xl bg-white-50 margin-top-small">
         <slot />
         </div>
-        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3">
-           <div id="author-bio" class="bg-white rounded-xl">
+        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3 margin-top-small" >
+           <div id="author-bio" class="bg-white-50 rounded-xl">
            <p> text</p>
            </div>
-           <div id="advertisment-policy" class="bg-white rounded-xl">
+           <div id="advertisment-policy" class="bg-white-50 rounded-xl">
           <p>text</p>
            </div>
-           <div id="guest-policy" class="bg-white rounded-xl">
+           <div id="guest-policy" class="bg-white-50 rounded-xl">
            <p>text</p>
            </div>
-           <div id="support" class="bg-white rounded-xl">
+           <div id="support" class="bg-white-50 rounded-xl">
            <p>text</p>
            </div>
-           <div id="newsletter-signup-sidebar" class="bg-white rounded-xl">
+           <div id="newsletter-signup-sidebar" class="bg-white-50 rounded-xl">
            <p>text</p>
            </div>
         </div>
@@ -90,3 +95,9 @@ const { frontmatter} = Astro.props;
     <Footer />
   </body>
 </html>
+
+<style>
+  #category{
+    text-transform: capitalize;
+  }
+</style>

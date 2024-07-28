@@ -94,6 +94,7 @@ const searchPosts = allPosts.filter((post) =>
                   <li>
                     <div id="card" class="rounded-xl bg-white flex flex-col" style="width:15em;">
                       <div id="card-img">
+                        <a href={`/${post.slug}`}>
                         <Image
                           src={post.data.heroImage.src}
                           width={300}
@@ -103,9 +104,10 @@ const searchPosts = allPosts.filter((post) =>
                           alt={post.data.heroImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
                         />
+                        </a>
                       </div>
                       <div id="card-text" class="p-8">
-                        <h3 class="text-balance">{post.data.title}</h3>
+                        <h3 class="text-balance"> <a href={`/${post.slug}`}>{post.data.title}</a></h3>
                         TL;DR
                         <ul class="xs padding-bottom-xxl">
                           <li>{post.data.tldrOne}</li>
@@ -139,6 +141,7 @@ const searchPosts = allPosts.filter((post) =>
                   <li>
                    <div id="card" class="rounded-xl bg-white flex flex-col" style="width:15em;">
                       <div id="card-img">
+                        <a href={`/${post.slug}`}>
                         <Image
                           src={post.data.heroImage.src}
                           width={300}
@@ -148,9 +151,10 @@ const searchPosts = allPosts.filter((post) =>
                           alt={post.data.heroImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
                         />
+                        </a>
                       </div>
                       <div id="card-text" class="p-8">
-                        <h3 class="text-balance">{post.data.title}</h3>
+                        <h3 class="text-balance"> <a href={`/${post.slug}`}>{post.data.title}</a></h3>
                         TL;DR
                         <ul class="xs padding-bottom-xxl">
                           <li>{post.data.tldrOne}</li>
@@ -184,6 +188,7 @@ const searchPosts = allPosts.filter((post) =>
                   <li>
                 <div id="card" class="rounded-xl bg-white flex flex-col" style="width:15em;">
                       <div id="card-img">
+                        <a href={`/${post.slug}`}>
                         <Image
                           src={post.data.heroImage.src}
                           width={300}
@@ -192,10 +197,10 @@ const searchPosts = allPosts.filter((post) =>
                           quality="mid"
                           alt={post.data.heroImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
-                        />
+                        /></a>
                       </div>
                       <div id="card-text" class="p-8">
-                        <h3 class="text-balance">{post.data.title}</h3>
+                        <h3 class="text-balance"> <a href={`/${post.slug}`}>{post.data.title}</a></h3>
                         TL;DR
                         <ul class="xs padding-bottom-xxl">
                           <li>{post.data.tldrOne}</li>
@@ -229,6 +234,7 @@ const searchPosts = allPosts.filter((post) =>
                   <li>
                   <div id="card" class="rounded-xl bg-white flex flex-col" style="width:15em;">
                       <div id="card-img">
+                        <a href={`/${post.slug}`}>
                         <Image
                           src={post.data.heroImage.src}
                           width={300}
@@ -237,10 +243,10 @@ const searchPosts = allPosts.filter((post) =>
                           quality="mid"
                           alt={post.data.heroImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
-                        />
+                        /></a>
                       </div>
                       <div id="card-text" class="p-8">
-                        <h3 class="text-balance">{post.data.title}</h3>
+                        <h3 class="text-balance"> <a href={`/${post.slug}`}>{post.data.title}</a></h3>
                         TL;DR
                         <ul class="xs padding-bottom-xxl">
                           <li>{post.data.tldrOne}</li>
@@ -274,6 +280,7 @@ const searchPosts = allPosts.filter((post) =>
                   <li>
                     <div id="card" class="rounded-xl bg-white flex flex-col" style="width:15em;">
                       <div id="card-img">
+                        <a href={`/${post.slug}`}>
                         <Image
                           src={post.data.heroImage.src}
                           width={300}
@@ -282,10 +289,10 @@ const searchPosts = allPosts.filter((post) =>
                           quality="mid"
                           alt={post.data.heroImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
-                        />
+                        /></a>
                       </div>
                       <div id="card-text" class="p-8">
-                        <h3 class="text-balance">{post.data.title}</h3>
+                        <h3 class="text-balance"> <a href={`/${post.slug}`}>{post.data.title}</a></h3>
                         TL;DR
                         <ul class="xs padding-bottom-xxl">
                           <li>{post.data.tldrOne}</li>
@@ -319,6 +326,7 @@ const searchPosts = allPosts.filter((post) =>
                   <li>
                   <div id="card" class="rounded-xl bg-white flex flex-col" style="width:15em;">
                       <div id="card-img">
+                        <a href={`/${post.slug}`}>
                         <Image
                           src={post.data.heroImage.src}
                           width={300}
@@ -327,10 +335,10 @@ const searchPosts = allPosts.filter((post) =>
                           quality="mid"
                           alt={post.data.heroImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
-                        />
+                        /></a>
                       </div>
                       <div id="card-text" class="p-8">
-                        <h3 class="text-balance">{post.data.title}</h3>
+                        <h3 class="text-balance"> <a href={`/${post.slug}`}>{post.data.title}</a></h3>
                         TL;DR
                         <ul class="xs padding-bottom-xxl">
                           <li>{post.data.tldrOne}</li>
@@ -364,6 +372,7 @@ const searchPosts = allPosts.filter((post) =>
                   <li>
                    <div id="card" class="rounded-xl bg-white flex flex-col" style="width:15em;">
                       <div id="card-img">
+                        <a href={`/${post.slug}`}>
                         <Image
                           src={post.data.heroImage.src}
                           width={300}
@@ -372,10 +381,10 @@ const searchPosts = allPosts.filter((post) =>
                           quality="mid"
                           alt={post.data.heroImage.alt}
                           class="w-full h-full rounded-tl-xl rounded-tr-xl"
-                        />
+                        /></a>
                       </div>
                       <div id="card-text" class="p-8">
-                        <h3 class="text-balance">{post.data.title}</h3>
+                        <h3 class="text-balance"> <a href={`/${post.slug}`}>{post.data.title}</a></h3>
                         TL;DR
                         <ul class="xs padding-bottom-xxl">
                           <li>{post.data.tldrOne}</li>

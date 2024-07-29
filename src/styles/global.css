@@ -307,7 +307,7 @@ ol {
 
 li {
   margin-block: var(--space-small);
-  padding-inline: var(--space-small);
+  /*   padding-inline: var(--space-small); */
 }
 
 li::marker {

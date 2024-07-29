@@ -84,8 +84,15 @@ const { frontmatter} = Astro.props;
             alt="author avatar"
           /></div>
           <div id="name">
-            <p>By <a href={frontmatter.authorUrl}>{frontmatter.author}</a></p>
+            <p style="text-transform: Capitalize;">By <a href={frontmatter.authorUrl}>{frontmatter.author.replace(/-/g, " ")}</a></p>
             <p>{frontmatter.authorBio}</p>
+            <div id="author-links">
+              <ul>
+                <li><a href={frontmatter.authorWeb}>Website</a></li>
+                <li><a href={frontmatter.authorLi}>LinkedIn</a></li>
+                <li><a href={frontmatter.authorX}>X (Twitter)</a></li>
+              </ul>
+          </div>
           </div>
           </div>
           </div>

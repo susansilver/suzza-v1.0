@@ -1,0 +1,49 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  imagePath: string;
+  authorUrl: string;
+  author:string;
+  authorWeb:string;
+  authorLi:string;
+  authorX:string;
+  authorBio:string;
+}
+
+const { imagePath } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif}"
+);
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
+
+  const { authorUrl, author, authorWeb, authorLi, authorX, authorBio } = Astro.props;
+---
+
+<div id="author-bio" class="bg-white-50 rounded-xl p-8">
+    <h3>About the Author</h3>
+    <hr>
+    <div id="author" class="flex flex-row xs">
+    <div id="author-img"> <Image
+        src={images[imagePath]()}
+     width={200}
+     height={200}
+     alt="author avatar"
+   /></div>
+   <div id="author-name">
+     <p style="text-transform: Capitalize;">By <a href={authorUrl}>{author.replace(/-/g, " ")}</a></p>
+     <p>{authorBio}</p>
+     <div id="author-links">
+       <ul>
+         <li><a href={authorWeb} target="_blank">Website</a></li>
+         <li><a href={authorLi} target="_blank">LinkedIn</a></li>
+         <li><a href={authorX} target="_blank">X (Twitter)</a></li>
+       </ul>
+   </div>
+   </div>
+   </div>
+   </div>

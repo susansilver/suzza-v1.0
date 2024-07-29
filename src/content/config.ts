@@ -26,6 +26,7 @@ const blog = defineCollection({
         authorX: z.string().optional(),
         authorLi: z.string().optional(),
         authorBio: z.string().optional(),
+        authorUrl: z.string().optional(),
       }),
     }),
 });

@@ -4,7 +4,8 @@ import BaseHead from "../components/base/BaseHead.astro";
 import Header from "../components/base/Header.astro";
 import Footer from "../components/base/Footer.astro";
 import HeaderImage from "../components/blog/HeaderImage.astro"
-import Newsletter from "../components/Newsletter.astro";
+import { Image } from "astro:assets";
+/* import Newsletter from "../components/Newsletter.astro"; */
 import Offer from "../components/Offer.astro";
 
 
@@ -28,6 +29,7 @@ authorWeb: string;
 authorX: string;
 authorLi: string;
 authorBio: string;
+authorUrl: string;
     headerImage: {
       src: string;
       alt: string;
@@ -71,9 +73,23 @@ const { frontmatter} = Astro.props;
         <slot />
         </div>
         <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3 margin-top-large" >
-           <div id="author-bio" class="bg-white-50 rounded-xl">
-           <p> text</p>
-           </div>
+           <div id="author-bio" class="bg-white-50 rounded-xl p-3">
+           <h3>About the Author</h3>
+           <hr>
+           <div id="author" class="flex flex-row xs">
+           <div id="author-img"> <Image
+            src={frontmatter.authorImg}
+            width={200}
+            height={200}
+            alt="author avatar"
+          /></div>
+          <div id="name">
+            <p>By <a href={frontmatter.authorUrl}>{frontmatter.author}</a></p>
+            <p>{frontmatter.authorBio}</p>
+          </div>
+          </div>
+          </div>
+          
            <div id="advertisment-policy" class="bg-white-50 rounded-xl">
           <p>text</p>
            </div>

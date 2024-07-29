@@ -43,7 +43,7 @@ const { frontmatter} = Astro.props;
       <article>
         <div class="grid grid-cols-12">
           <div class="col-span-10 col-start-2 col-end-12 lg:col-span-6 lg:col-start-4 lg:col-end-10">
-            <Newsletter />
+          <!--   <Newsletter /> -->
           <div>
                 <HeaderImage
                 imagePath={frontmatter.headerImage.src}
@@ -52,7 +52,7 @@ const { frontmatter} = Astro.props;
               />
            <div id="meta">
            <h1 class="text-secondary-950 text-balance">{frontmatter.title}</h1>
-           <div class="flex flex-row gap-3">
+           <div class="flex flex-row gap-3 poppins med">
             <div id="time">Updated: {frontmatter.updatedDate}</div>
             <div id="category">Category: <a href={`/category/${frontmatter.categories}`}>{frontmatter.categories.replace(/-/g, " ")}</a></div>
 
@@ -62,10 +62,10 @@ const { frontmatter} = Astro.props;
         </div>
       </div>
       <div class="grid grid-cols-12 gap-3">
-        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8 rounded-xl bg-white-50 margin-top-small">
+        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8 rounded-xl bg-white-50 margin-top-large px-8">
         <slot />
         </div>
-        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3 margin-top-small" >
+        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3 margin-top-large" >
            <div id="author-bio" class="bg-white-50 rounded-xl">
            <p> text</p>
            </div>

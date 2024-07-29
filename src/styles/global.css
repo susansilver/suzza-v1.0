@@ -292,6 +292,12 @@ h3 {
   font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
 }
 
+article h1,
+article h2,
+article h3 {
+  margin-inline: var(--space-xs);
+}
+
 /* Lists */
 ul,
 ol {
@@ -301,6 +307,7 @@ ol {
 
 li {
   margin-block: var(--space-small);
+  padding-inline: var(--space-small);
 }
 
 li::marker {
@@ -328,7 +335,7 @@ ol > li > ol {
 /* Paragraphs */
 p {
   margin-block: var(--space-med);
-  padding-inline: var(--space-small);
+  padding-inline: var(--space-xs);
   /*   margin-block-end:1em; */
 }
 

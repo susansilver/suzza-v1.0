@@ -65,11 +65,38 @@ const { frontmatter} = Astro.props;
         </div>
       </div>
       <div class="grid grid-cols-12 gap-3">
-        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8 rounded-xl bg-white-50 margin-top-large px-8">
+        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8">
+          <div id="content" class="rounded-xl bg-white-50 margin-y-large p-8">
+            <a href="#comments">Skip to the Comments</a>
         <slot />
+       
+      </div>
+        <aside>
+        <div id="support" class="rounded-xl bg-white-50 p-8 margin-top-large">
+          <h3 class="text-balance">Thank You For Your Support</h3>
+          <hr>
+          <p>If you enjoyed that post, consider supporting me on Patreon. Even $1 a month helps with the costs of website maintenance.</p>
+          <ul>
+           <li><a href="https://www.patreon.com/susansilver" target="_blank">Patreon</a></li>
+          </ul>
+          <p>You can also send me a tip.</p>
+          <ul>
+           <li><a href="https://ko-fi.com/SuzzaS" target="_blank">Ko-fi</a></li>
+           <li><a href="https://www.paypal.com/paypalme/SuzzaS" target="_blank">Paypal</a></li>
+          </ul>
+          </div>
+          <a name="comments"></a>
+          <div id="comments" class="rounded-xl bg-white-50 text-white-50 p-8 margin-top-large">
+            <div class="commentbox"></div>
+  
+          </div>
         </div>
+
+       
+        
         <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3 margin-top-large" >
-           <div id="author-bio" class="bg-white-50 rounded-xl p-3">
+          <aside>
+           <div id="author-bio" class="bg-white-50 rounded-xl p-8">
            <h3>About the Author</h3>
            <hr>
            <div id="author" class="flex flex-row xs">
@@ -79,32 +106,66 @@ const { frontmatter} = Astro.props;
             height={200}
             alt="author avatar"
           /></div>
-          <div id="name">
+          <div id="author-name">
             <p style="text-transform: Capitalize;">By <a href={frontmatter.authorUrl}>{frontmatter.author.replace(/-/g, " ")}</a></p>
             <p>{frontmatter.authorBio}</p>
             <div id="author-links">
               <ul>
-                <li><a href={frontmatter.authorWeb}>Website</a></li>
-                <li><a href={frontmatter.authorLi}>LinkedIn</a></li>
-                <li><a href={frontmatter.authorX}>X (Twitter)</a></li>
+                <li><a href={frontmatter.authorWeb} target="_blank">Website</a></li>
+                <li><a href={frontmatter.authorLi} target="_blank">LinkedIn</a></li>
+                <li><a href={frontmatter.authorX} target="_blank">X (Twitter)</a></li>
               </ul>
           </div>
           </div>
           </div>
           </div>
-          
-           <div id="advertisment-policy" class="bg-white-50 rounded-xl">
-          <p>text</p>
+         
+          </aside>
+          <aside>
+           <div id="advertisment-policy" class="bg-white-50 rounded-xl p-8 xs">
+            <h3> Advertisement Policy</h3>
+            <hr>
+          <p>All advertising is disclosed on this website.</p>
+          <p>Sponsored posts will be marked as such.</p>  
+          <p>Some links are affiliate links and will be marked (affliiate). I will earn a small commission if you purchase.</p>
+          <p><a href="mailto:suzza@susansilve.net" target="_blank">Contact Suzza</a> for advertising inquiries.</p>
            </div>
-           <div id="guest-policy" class="bg-white-50 rounded-xl">
-           <p>text</p>
+           </aside>
+           <aside>
+           <div id="newsletter-signup-sidebar" class="bg-white-50 rounded-xl p-8 xs">
+            <h3>Subscribe</h3>
+            <hr>
+            <ul>
+           <li> Receive notfications of new posts by subscribing.</li>
+           <li> You will also join a community of writers who want more traffic to their blogs.</li>
+           <li>Get a free How to Start Blogging FAQ</li>
+            </ul>
+           <div id="newsletter-form" class="flex justify-center"><iframe src="https://embeds.beehiiv.com/9a249792-c593-446f-9054-76b1c92f7336?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;" class="w-full padding-x-med"></iframe>
            </div>
-           <div id="support" class="bg-white-50 rounded-xl">
-           <p>text</p>
+            </div>
+            </aside>
+            <aside>
+           <div id="guest-policy" class="bg-white-50 rounded-xl p-8 xs">
+           <h3>Guest Post Policy</h3>
+           <hr>
+           <p>This blog accepts guest posts.</p>
+           <p>Please do not send full articles!</p>
+           <p>Directions for Pitiching:</p>
+           <div id="pitch-directions">
+            <div id="pitch-directions">
+              <ul>
+                <li>Send an email</li>
+                <li>Put pitch in your subject line</li>
+                <li>Send a short pargraph with a description of your article.</li>
+                <li>Make sure to include your website and socials</li>
+                <li>I will follow up with you in the next two weeks.</li>
+              </ul>
+              <p> Email pitches to <a href="mailto:suzza@susansilver.net" target="_blank">suzza@susansilver.net</a></p>
+            </div>
            </div>
-           <div id="newsletter-signup-sidebar" class="bg-white-50 rounded-xl">
-           <p>text</p>
            </div>
+        
+         </aside>
         </div>
          </div>
           </div>
@@ -117,6 +178,8 @@ const { frontmatter} = Astro.props;
       </article>
     </main>
     <Footer />
+    <script is:inline src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+  <script is:inline>commentBox('5707103779946496-proj')</script>
   </body>
 </html>
 
@@ -125,3 +188,4 @@ const { frontmatter} = Astro.props;
     text-transform: capitalize;
   }
 </style>
+

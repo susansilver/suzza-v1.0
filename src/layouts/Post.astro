@@ -68,6 +68,12 @@ const { frontmatter} = Astro.props;
         <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8">
           <div id="content" class="rounded-xl bg-white-50 margin-y-large p-8">
             <a href="#comments">Skip to the Comments</a>
+          <p>Tl;DR</p>
+           <ul>
+            <li>{frontmatter.tldrOne}</li>
+            <li>{frontmatter.tldrTwo}</li>
+            <li>{frontmatter.tldrThree}</li>
+           </ul>
         <slot />
        
       </div>
@@ -85,11 +91,25 @@ const { frontmatter} = Astro.props;
            <li><a href="https://www.paypal.com/paypalme/SuzzaS" target="_blank">Paypal</a></li>
           </ul>
           </div>
+          </aside>
+          <aside>
+          <div id="comment-policy" class="bg-white-50 rounded-xl p-8 xs margin-top-large">
+            <h3> Comment Policy</h3>
+            <hr>
+          <p>All comments are moderated.</p>
+          <p> Do not express hatred or intolerance based on identity or personhood, including but not limited to race, ethnicity, nationality, gender identity or sex assigned at birth, body type (including intersex), religion, sexual orientation, age, or disability, education, geography, work status, H.I.V status, immigration status, pregnancy status or genetic information</p>  
+          <p>No hate speech, harrasment, or trolling. Arguments are allowed but should not turn into personal attacks.</p>
+          <p> Do not share personally identifiable information like phone numbers or addresses.</p>
+          <p> Do not share information about illegal activities. No sharing of explicit sexual content or nudity. Violent imagery, gore, and threats are also not allowed. 
+           </div>
+           </aside>
+           <aside>
           <a name="comments"></a>
           <div id="comments" class="rounded-xl bg-white-50 text-white-50 p-8 margin-top-large">
             <div class="commentbox"></div>
+          </aside>
   
-          </div>
+         
         </div>
 
        
@@ -166,6 +186,8 @@ const { frontmatter} = Astro.props;
            </div>
         
          </aside>
+         <aside>
+       
         </div>
          </div>
           </div>

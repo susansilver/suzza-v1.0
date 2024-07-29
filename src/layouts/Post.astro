@@ -11,10 +11,6 @@ import Offer from "../components/Offer.astro";
 
 interface Props {
   frontmatter: CollectionEntry<"blog">["data"] & {
-    heroImage: {
-      src: string;
-      alt: string;
-    };
     title: string;
     updatedDate: string;
     description: string;

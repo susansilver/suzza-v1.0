@@ -21,6 +21,11 @@ const blog = defineCollection({
           .refine((img) => (img.height = 300))
           .refine((img) => (img.width = 1200)),
         alt: z.string(),
+        authorImg: z.string().optional(),
+        authorWeb: z.string().optional(),
+        authorX: z.string().optional(),
+        authorLi: z.string().optional(),
+        authorBio: z.string().optional(),
       }),
     }),
 });

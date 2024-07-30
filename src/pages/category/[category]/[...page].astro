@@ -1,0 +1,149 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../../components/base/BaseHead.astro";
+import Header from "../../../components/base/Header.astro";
+import Footer from "../../../components/base/Footer.astro";
+import { Image } from "astro:assets";
+import { Pagination } from 'accessible-astro-components'
+
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const allPosts = await getCollection("blog");
+
+  const sortedPosts = allPosts
+    .filter((post) => !post.data.draft) // Filter out drafts
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()); // Sort by pubDate descending
+
+  // Ensure allPosts have defined categories
+  const allCategories = [
+    ...new Set(
+      sortedPosts.flatMap((post) => post.data.categories || []) // Default to an empty array if undefined
+    ),
+  ];
+
+  return allCategories.flatMap((category) => {
+    const filteredPosts = allPosts.filter(
+      (post) => post.data.categories && post.data.categories.includes(category)
+    );
+    return paginate(filteredPosts, {
+      params: { category },
+      pageSize: 6,
+    });
+  });
+}
+
+interface BlogPostEntry {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+    headerImage: {
+      src: string;
+      alt: string;
+    };
+    draft: boolean;
+    pubDate: string; // or Date if you prefer to parse it beforehand
+    tldrOne: string;
+    tldrTwo: string;
+    tldrThree: string;
+    categories: string[];
+  };
+}
+
+interface Props {
+  page: {
+    data: BlogPostEntry[];
+    currentPage: number;
+    total: number;
+    size: number; 
+    url: {
+      prev: string;
+      next: string;
+    };
+  };
+}
+
+const { page }: { page: Props["page"] } = Astro.props;
+const { params } = Astro;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={params.category.toLowerCase().replace(/-/g, " ")}
+      description={`Category archive for ${params.category.replace(/-/g, " ")}`}
+    />
+  </head>
+
+  <body class="bg-primary-300">
+    <Header />
+    <main>
+      
+     <div class="grid grid-cols-12">
+        <div class="lg:col-span-6 lg:col-start-4 lg:col-end-10 col-span-10 col-start-2 col-end-12">
+            <h1 class="text-secondary-950" style="text-transform:capitalize;">
+                Category: {params.category.replace(/-/g, " ")}
+              </h1>
+        
+              <h3>Page {page.currentPage}</h3>
+
+              <div id="container" class="margin-y-xxl flex flex-row flex-wrap gap-6">
+                {
+                  page.data.map((blogPostEntry: BlogPostEntry) => (
+                    <>
+                     <div id="card" class="rounded-xl bg-white-50 flex flex-col" style="width:15em;">
+                      <div id="card-img">
+                        <a href={`/${blogPostEntry.slug}`}>
+                        <Image
+                          src={blogPostEntry.data.headerImage.src}
+                          width={300}
+                          height={600}
+                          format="avif"
+                          quality="mid"
+                          alt={blogPostEntry.data.headerImage.alt}
+                          class="w-full h-full rounded-tl-xl rounded-tr-xl"
+                          transition:name="hero"
+                        />
+                        </a>
+                      </div>
+                      <div id="card-text" class="p-8">
+                        <h3 class="text-balance"> <a href={`/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a></h3>
+                        TL;DR
+                        <ul class="xs padding-bottom-xxl">
+                          <li>{blogPostEntry.data.tldrOne}</li>
+                          <li>{blogPostEntry.data.tldrTwo}</li>
+                          <li>{blogPostEntry.data.tldrThree}</li>
+                        </ul>
+                        <a href={`/${blogPostEntry.slug}`} class="rounded-xl bg-accent-400 underline p-2 hover:text-background-100">
+                          Read More
+                        </a>
+                      </div>
+                    </div>
+                    </>
+                  ))
+                }
+              </div>
+              <div id="page-numbers" class="flex justify-center">
+                <Pagination
+  firstPage={page.url.prev ? `/category/${params.category}` : null}
+  previousPage={page.url.prev ? page.url.prev : null}
+  nextPage={page.url.next ? page.url.next : null}
+  lastPage={page.url.next ? `/category/${params.category}/${Math.round(page.total / page.size)}` : null}
+  currentPage={page.currentPage}
+  totalPages={Math.round(page.total / page.size)}
+/>
+              </div>
+        </div>
+     </div>
+    </main>
+    <Footer />
+    
+  </body>
+</html>
+
+<style is:global>
+  #page-numbers ul{
+    list-style: none;
+  }
+</style>
+</style>

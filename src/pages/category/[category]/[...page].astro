@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
     .filter((post) => !post.data.draft) // Filter out drafts
     .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()); // Sort by pubDate descending
 
-  // Ensure allPosts have defined categories
+  // Ensure sortedPosts have defined categories
   const allCategories = [
     ...new Set(
       sortedPosts.flatMap((post) => post.data.categories || []) // Default to an empty array if undefined
@@ -22,7 +22,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
   ];
 
   return allCategories.flatMap((category) => {
-    const filteredPosts = allPosts.filter(
+    const filteredPosts = sortedPosts.filter(
       (post) => post.data.categories && post.data.categories.includes(category)
     );
     return paginate(filteredPosts, {

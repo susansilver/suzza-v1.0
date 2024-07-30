@@ -16,37 +16,37 @@ const allPosts = (await getCollection("blog"))
 
 // Filter posts for the "blog design" category
 const blogDesignPosts = allPosts.filter((post) =>
-  post.data.categories?.includes("blog-design")
+  post.data.categories?.includes("blog-design") && !post.data.draft
 ).slice(0, 3);
 
 // Filter posts for the "Writing tips" category
 const writingTipsPosts = allPosts.filter((post) =>
-  post.data.categories?.includes("writing-tips")
+  post.data.categories?.includes("writing-tips") && !post.data.draft
 ).slice(0, 3);
 
 // Filter posts for the "Building Community" category
 const communityPosts = allPosts.filter((post) =>
-  post.data.categories?.includes("building-community")
+  post.data.categories?.includes("building-community") && !post.data.draft
 ).slice(0, 3);
 
 // Filter posts for the "Making Money" category
 const moneyPosts = allPosts.filter((post) =>
-  post.data.categories?.includes("making-money")
+  post.data.categories?.includes("making-money") && !post.data.draft
 ).slice(0, 3);
 
 // Filter posts for the "Motivation" category
 const motivationPosts = allPosts.filter((post) =>
-  post.data.categories?.includes("motivation")
+  post.data.categories?.includes("motivation") && !post.data.draft
 ).slice(0, 3);
 
 // Filter posts for the "Planning and Productivity" category
 const planningPosts = allPosts.filter((post) =>
-  post.data.categories?.includes("planning-and-productivity")
+  post.data.categories?.includes("planning-and-productivity") && !post.data.draft
 ).slice(0, 3);
 
 // Filter posts for the "Search Taffic" category
 const searchPosts = allPosts.filter((post) =>
-  post.data.categories?.includes("search-traffic")
+  post.data.categories?.includes("search-traffic") && !post.data.draft
 ).slice(0, 3);
 ---
 

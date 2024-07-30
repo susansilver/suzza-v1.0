@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import BaseHead from "../../components/base/BaseHead.astro";
 import Header from "../../components/base/Header.astro";
 import Footer from "../../components/base/Footer.astro";
+import SlimNewsletter from "../../components/SlimNewsletter.astro";
 
 const allPosts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -58,6 +59,7 @@ const searchPosts = allPosts.filter((post) =>
     <main>
       <div class="grid grid-cols-12">
         <div class="lg:col-span-6 lg:col-start-4 lg:col-end-10 col-span-10 col-start-2 col-end-12">
+          <SlimNewsletter />
           <div id="blog-summary">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id urna nec quam euismod elementum. Curabitur ullamcorper, diam eu blandit dictum, magna ante viverra risus, a aliquam ligula mauris sed diam. Nullam vitae libero eget turpis cursus dictum non nec risus. In hac habitasse platea dictumst. </p>
           </div>

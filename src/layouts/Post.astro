@@ -51,7 +51,7 @@ const { frontmatter, headings} = Astro.props;
     <main class="margin-y-xxl">
       <article>
         <div class="grid grid-cols-12">
-          <div class="col-span-10 col-start-2 col-end-12 lg:col-span-6 lg:col-start-4 lg:col-end-10">
+          <div class="col-span-10 col-start-2 col-end-12">
           <!--   <Newsletter /> -->
           <div>
                 <HeaderImage
@@ -71,7 +71,7 @@ const { frontmatter, headings} = Astro.props;
         </div>
       </div>
       <div class="grid grid-cols-12 gap-3">
-        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8">
+        <div class="col-span-10 col-start-2 col-end-12 lg:col-span-7 lg:col-start-2 lg:col-end-9">
           <div id="content" class="rounded-xl bg-white-50 margin-y-large p-8">
           <!--   <a href="#comments">Skip to the Comments</a> -->
           <p>TL;DR</p>
@@ -95,21 +95,7 @@ const { frontmatter, headings} = Astro.props;
         <slot />
        
       </div>
-        <aside>
-        <div id="support" class="rounded-xl bg-white-50 p-8 margin-top-large">
-          <h3 class="text-balance">Thank You For Your Support</h3>
-          <hr>
-          <p>If you enjoyed that post, consider supporting me on Patreon. Even $1 a month helps with the costs of website maintenance.</p>
-          <ul>
-           <li><a href="https://www.patreon.com/susansilver" target="_blank">Patreon</a></li>
-          </ul>
-          <p>You can also send me a tip.</p>
-          <ul>
-           <li><a href="https://ko-fi.com/SuzzaS" target="_blank">Ko-fi</a></li>
-           <li><a href="https://www.paypal.com/paypalme/SuzzaS" target="_blank">Paypal</a></li>
-          </ul>
-          </div>
-          </aside>
+       
         <!--   <aside>
           <div id="comment-policy" class="bg-white-50 rounded-xl p-8 xs margin-top-large">
             <h3> Comment Policy</h3>
@@ -132,7 +118,7 @@ const { frontmatter, headings} = Astro.props;
 
        
         
-        <div class="lg:col-span-2 lg:col-start-8 col-span-10 col-start-2 col-end-12 flex flex-col gap-3 margin-top-large" >
+        <div class="lg:col-span-3 lg:col-start-9 col-span-12 col-start-2 col-end-12 flex flex-col gap-3 margin-top-large" >
           <aside>
         <AuthorBio imagePath={frontmatter.authorImg} authorUrl={frontmatter.authorUrl} author={frontmatter.author} authorWeb={frontmatter.authorWeb} authorLi={frontmatter.authorLi} authorX={frontmatter.authorX} authorBio={frontmatter.authorBio} />
          
@@ -183,12 +169,27 @@ const { frontmatter, headings} = Astro.props;
         
          </aside>
          <aside>
+          <div id="support" class="rounded-xl bg-white-50 p-8 xs">
+            <h3 class="text-balance">Thank You For Your Support</h3>
+            <hr>
+            <p>If you enjoyed that post, consider supporting me on Patreon.</p>
+            <p> Even $1 a month helps with the costs of website maintenance.</p>
+            <ul>
+             <li><a href="https://www.patreon.com/susansilver" target="_blank">Patreon</a></li>
+            </ul>
+            <p>You can also send me a tip.</p>
+            <ul>
+             <li><a href="https://ko-fi.com/SuzzaS" target="_blank">Ko-fi</a></li>
+             <li><a href="https://www.paypal.com/paypalme/SuzzaS" target="_blank">Paypal</a></li>
+            </ul>
+            </div>
+            </aside>
        
         </div>
          </div>
           </div>
           <div class="grid grid-cols-12">
-            <div class="col-span-10 col-start-2 col-end-12 lg:col-span-6 lg:col-start-4 lg:col-end-10">
+            <div class="col-span-10 col-start-2 col-end-12">
 <Offer />
               </div>
               </div>

@@ -73,7 +73,7 @@ const { frontmatter, headings} = Astro.props;
       <div class="grid grid-cols-12 gap-3">
         <div class="col-span-10 col-start-2 col-end-12 lg:col-span-4 lg:col-start-4 lg:col-end-8">
           <div id="content" class="rounded-xl bg-white-50 margin-y-large p-8">
-            <a href="#comments">Skip to the Comments</a>
+          <!--   <a href="#comments">Skip to the Comments</a> -->
           <p>TL;DR</p>
            <ul>
             <li>{frontmatter.tldrOne}</li>
@@ -110,7 +110,7 @@ const { frontmatter, headings} = Astro.props;
           </ul>
           </div>
           </aside>
-          <aside>
+        <!--   <aside>
           <div id="comment-policy" class="bg-white-50 rounded-xl p-8 xs margin-top-large">
             <h3> Comment Policy</h3>
             <hr>
@@ -120,12 +120,12 @@ const { frontmatter, headings} = Astro.props;
           <p> Do not share personally identifiable information like phone numbers or addresses.</p>
           <p> Do not share information about illegal activities. No sharing of explicit sexual content or nudity. Violent imagery, gore, and threats are also not allowed. 
            </div>
-           </aside>
-           <aside>
+           </aside> -->
+         <!--   <aside>
           <a name="comments"></a>
           <div id="comments" class="rounded-xl bg-white-50 text-white-50 p-8 margin-top-large">
             <div class="commentbox"></div>
-          </aside>
+          </aside> -->
   
          
         </div>
@@ -196,8 +196,8 @@ const { frontmatter, headings} = Astro.props;
       </article>
     </main>
     <Footer />
-    <script is:inline src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-  <script is:inline>commentBox('5707103779946496-proj')</script>
+<!--     <script is:inline src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+  <script is:inline>commentBox('5707103779946496-proj')</script> -->
   </body>
 </html>
 

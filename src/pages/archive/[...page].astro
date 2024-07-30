@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../../../components/base/BaseHead.astro";
-import Header from "../../../components/base/Header.astro";
-import Footer from "../../../components/base/Footer.astro";
+import BaseHead from "../../components/base/BaseHead.astro";
+import Header from "../../components/base/Header.astro";
+import Footer from "../../components/base/Footer.astro";
 import { Image } from "astro:assets";
 import { Pagination } from 'accessible-astro-components'
 
@@ -10,26 +10,13 @@ import { Pagination } from 'accessible-astro-components'
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const allPosts = await getCollection("blog");
 
-  const sortedPosts = allPosts
-    .filter((post) => !post.data.draft) // Filter out drafts
-    .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()); // Sort by pubDate descending
+  // Filter out draft posts
+  const publishedPosts = allPosts.filter((post) => !post.data.draft);
 
-  // Ensure allPosts have defined categories
-  const allCategories = [
-    ...new Set(
-      sortedPosts.flatMap((post) => post.data.categories || []) // Default to an empty array if undefined
-    ),
-  ];
+  // Sort posts by publication date (assuming pubDate is in ISO 8601 format)
+  publishedPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()); 
 
-  return allCategories.flatMap((category) => {
-    const filteredPosts = allPosts.filter(
-      (post) => post.data.categories && post.data.categories.includes(category)
-    );
-    return paginate(filteredPosts, {
-      params: { category },
-      pageSize: 6,
-    });
-  });
+  return paginate(publishedPosts, { pageSize: 6 });
 }
 
 interface BlogPostEntry {
@@ -70,8 +57,8 @@ const { params } = Astro;
 <html lang="en">
   <head>
     <BaseHead
-      title={params.category.toLowerCase().replace(/-/g, " ")}
-      description={`Category archive for ${params.category.replace(/-/g, " ")}`}
+      title="Blog Archive"
+      description="Articles sorted by date."
     />
   </head>
 
@@ -81,8 +68,8 @@ const { params } = Astro;
       
      <div class="grid grid-cols-12">
         <div class="lg:col-span-6 lg:col-start-4 lg:col-end-10 col-span-10 col-start-2 col-end-12">
-            <h1 class="text-secondary-950" style="text-transform:capitalize;">
-                Category: {params.category.replace(/-/g, " ")}
+            <h1 class="text-secondary-950" >
+              All Articles
               </h1>
         
               <h3>Page {page.currentPage}</h3>
@@ -125,10 +112,10 @@ const { params } = Astro;
               </div>
               <div id="page-numbers" class="flex justify-center">
                 <Pagination
-  firstPage={page.url.prev ? `/category/${params.category}` : null}
+  firstPage={page.url.prev ? `/archive` : null}
   previousPage={page.url.prev ? page.url.prev : null}
   nextPage={page.url.next ? page.url.next : null}
-  lastPage={page.url.next ? `/category/${params.category}/${Math.round(page.total / page.size)}` : null}
+  lastPage={page.url.next ? `/archive/${Math.round(page.total / page.size)}` : null}
   currentPage={page.currentPage}
   totalPages={Math.round(page.total / page.size)}
 />

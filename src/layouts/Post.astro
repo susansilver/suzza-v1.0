@@ -10,6 +10,8 @@ import Offer from "../components/Offer.astro";
 import TOC from "../components/TableOfContents.astro";
 
 
+
+
 interface Props {
   frontmatter: CollectionEntry<"blog">["data"] & {
     title: string;
@@ -96,22 +98,12 @@ const { frontmatter, headings} = Astro.props;
       
       </div>
       <Offer />
-        <!--   <aside>
-          <div id="comment-policy" class="bg-white-50 rounded-xl p-8 xs margin-top-large">
-            <h3> Comment Policy</h3>
-            <hr>
-          <p>All comments are moderated.</p>
-          <p> Do not express hatred or intolerance based on identity or personhood, including but not limited to race, ethnicity, nationality, gender identity or sex assigned at birth, body type (including intersex), religion, sexual orientation, age, or disability, education, geography, work status, H.I.V status, immigration status, pregnancy status or genetic information</p>  
-          <p>No hate speech, harrasment, or trolling. Arguments are allowed but should not turn into personal attacks.</p>
-          <p> Do not share personally identifiable information like phone numbers or addresses.</p>
-          <p> Do not share information about illegal activities. No sharing of explicit sexual content or nudity. Violent imagery, gore, and threats are also not allowed. 
-           </div>
-           </aside> -->
-         <!--   <aside>
+    <aside>
           <a name="comments"></a>
-          <div id="comments" class="rounded-xl bg-white-50 text-white-50 p-8 margin-top-large">
-            <div class="commentbox"></div>
-          </aside> -->
+          <div id="comments" class="rounded-xl bg-white-50 p-8 margin-top-large">
+          All comments require approval. <a href="/comment-policy">Read our comment Policy</a>
+            <div class="commentbox margin-top-small"></div>
+          </aside> 
   
          
         </div>
@@ -197,8 +189,8 @@ const { frontmatter, headings} = Astro.props;
       </article>
     </main>
     <Footer />
-<!--     <script is:inline src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-  <script is:inline>commentBox('5707103779946496-proj')</script> -->
+ <script is:inline src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+  <script is:inline>commentBox('5650215998586880-proj')</script> 
   </body>
 </html>
 

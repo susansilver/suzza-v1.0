@@ -1,3 +1,40 @@
+---
+import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
+---
+
+
+
 <header>
-<a href="">Suzza.Net</a>
-</header>
+
+    <nav>
+        <div id="menu" class="flex lg:flex-row flex-col lg:justify-between padding-x-xxl">
+            <div class="poppins xxl">Suzza.net</div>
+        <div id="menu-items">
+            <div class="lg:hidden flex justify-start">
+              <button id="menuButton">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+              </button>
+            </div>
+            <ul id="menuList" class="hidden lg:flex lg:flex-row list-none gap-3">
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">How to Blog</a></li>
+                <li><a href="/archive">Blog Archive</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/">Subscribe</a></li>
+                <li><a href="mailto:suzza@susansilver.net">Contact</a></li>
+            </ul>
+          </div>
+          </div>
+       
+        </nav>
+    
+  </header>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const menuList = document.getElementById("menuList");
+    
+     menuButton.addEventListener("click", () => {
+        menuList.classList.toggle("hidden");
+      });
+    </script>

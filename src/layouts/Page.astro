@@ -12,6 +12,7 @@ interface Props {
     pubDate: string;
     author: string;
 authorUrl: string;
+show: boolean;
   };
 }
 
@@ -29,8 +30,16 @@ const { frontmatter } = Astro.props;
 <article>
     <h1 class="text-secondary-950 text-balance">{frontmatter.title}</h1>
     <div class="flex flex-row gap-3">
-    <div>{frontmatter.updatedDate}</div>
+    <div>Updated: {frontmatter.updatedDate}</div>
+    {
+    frontmatter.show && (
+
+    <>
     <div>By <a href={frontmatter.authorUrl}>{frontmatter.author.replace(/-/g, " ")}</a></div>
+      </>
+
+              )
+            }
 </div>
     <div class="bg-white-50 rounded-xl p-8 margin-top-large">
         <slot />

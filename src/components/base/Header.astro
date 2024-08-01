@@ -32,11 +32,15 @@
     
   </header>
 
-  <script>
-    const menuButton = document.getElementById("menuButton");
-    const menuList = document.getElementById("menuList");
-    
-     menuButton?.addEventListener("click", () => {
-        menuList?.classList.toggle("hidden");
-      });
-    </script>
+ <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuButton = document.getElementById("menuButton");
+        const menuList = document.getElementById("menuList");
+        
+        if (menuButton && menuList) {
+            menuButton.addEventListener("click", () => {
+                menuList.classList.toggle("hidden");
+            });
+        }
+    });
+</script>

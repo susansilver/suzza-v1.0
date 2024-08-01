@@ -4,7 +4,8 @@ import { Image } from "astro:assets";
 import BaseHead from "../../components/base/BaseHead.astro";
 import Header from "../../components/base/Header.astro";
 import Footer from "../../components/base/Footer.astro";
-import SlimNewsletter from "../../components/SlimNewsletter.astro";
+/* import SlimNewsletter from "../../components/SlimNewsletter.astro"; */
+import Offer from "../../components/Offer.astro";
 
 const allPosts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -52,16 +53,26 @@ const searchPosts = allPosts.filter((post) =>
 
 <html lang="en">
   <head>
-    <BaseHead title="Blog" description="Let's Bloom Together" />
+    <BaseHead title="How to Start a Blog" description="Articles on how to successfully start a new blog for first time writers." />
   </head>
   <body class="bg-primary-300">
     <Header />
     <main>
       <div class="grid grid-cols-12">
         <div class="lg:col-span-6 lg:col-start-4 lg:col-end-10 col-span-10 col-start-2 col-end-12">
-          <SlimNewsletter />
-          <div id="blog-summary">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id urna nec quam euismod elementum. Curabitur ullamcorper, diam eu blandit dictum, magna ante viverra risus, a aliquam ligula mauris sed diam. Nullam vitae libero eget turpis cursus dictum non nec risus. In hac habitasse platea dictumst. </p>
+        <!--   <SlimNewsletter /> -->
+          <div id="blog-summary" class="xl">
+            <p>Starting a new blog is a daunting task. You may have many questions. Like how to get anyone to read it. The main goal of this website is to help you get more traffic to your blog. As well as providing great content to keep people coming back. We discuss several topics in this regard. 
+            </p>
+        <!--     <ul>
+              <li>Blog Design - You want to present a custom website even if you are using a template. These are tips on using HTML and CSS to make your blog unique. </li>
+              <li>Writing Tips - My best SEO tactic is good writing. Write blogs that humans want to read. </li>
+              <li>Building Community - You cannot depend on search and social media to grow your audience. Building community is the best way to bring traffic to your blog.</li>
+              <li>Making Money - Some people want to make money from their blogs. These articles discuss some of the ways that you can monetize it. </li>
+              <li>Motivation - I’ve been there building a blog from scratch. These are my words of wisdom. </li>
+              <li>Planning and Productivity - These articles are about staying organized. There are ways to schedule and automate things that help keep you on track. </li>
+              <li>Search Traffic - You are probably starting your blog with a $0 budget. Organic search traffic is a pathway to get people to your website without spending cash. </li>
+            </ul> -->
           </div>
           <div id="category-links">
             Choose a Category.
@@ -415,6 +426,7 @@ const searchPosts = allPosts.filter((post) =>
               </div>
             )}
           </div>
+          <Offer />
         </div>
       </div>
     </main>
